@@ -1,3 +1,4 @@
+import { createAmdDefine } from './amd-registrator'
 import { createDependencyResolver } from './dependency-resolver'
 import { createSystem } from './system-registrator'
 
@@ -22,9 +23,10 @@ export const load = async <T = any>(
   const exports = {} as T
   const module = { exports }
   const system = createSystem(exports, resolver)
+  const amdDefine = createAmdDefine(require, exports, dependencies)
 
-  const func = new Function('require', 'module', 'exports', 'System', data)
-  func(resolver, module, exports, system)
+  const func = new Function('require', 'module', 'exports', 'System', 'define', data)
+  func(resolver, module, exports, system, amdDefine)
 
   return module.exports
 }

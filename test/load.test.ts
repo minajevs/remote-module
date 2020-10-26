@@ -8,7 +8,7 @@ describe('load', () => {
     fetcher.mockClear()
   })
 
-  const modules = ['commonjs', 'umd', 'systemjs']
+  const modules = ['commonjs', 'umd', 'amd', 'systemjs']
 
   modules.forEach(moduleName =>
     it(`loads ${moduleName} module`, async () => {
