@@ -30,6 +30,7 @@ Dynamic module loading allows you to load JS modules from the internet dynamical
 - Async module loading using promises or `async / await`
 - Configurable fetching
 - Configurable module dependencies
+- TypeScript typings for expected module
 
 ## Examples
 
@@ -75,6 +76,18 @@ const dependencies = {
 const isOdd = await load(url, { dependencies })
 
 isOdd(42) // returns false
+```
+
+### Providing expected module type
+
+```ts
+import { load } from '@doubledashdev/remote-modules'
+
+const url = 'https://raw.githubusercontent.com/jonschlinkert/is-number/master/index.js'
+
+const isNumber = await load<(value: number) => boolean>(url)
+
+isNumber(42) // returns true, and is well-typed
 ```
 
 ---
