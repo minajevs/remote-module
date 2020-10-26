@@ -24,6 +24,8 @@ Dynamic module loading allows you to load JS modules from the internet dynamical
 
 `AMD`, `UMD`, `CommonJS` and `SystemJS` modules are supported. You can load any module from the internet built for one of those module loaders using simple `load(url)` function.
 
+~~Brazenly stolen~~ Forked from https://github.com/Paciolan/remote-module-loader
+
 ## Features
 
 - Seamless support for `AMD`, `UMD`, `CommonJS` and `SystemJS` modules
