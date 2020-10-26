@@ -12,10 +12,8 @@ const defaultOptions: LoadOptions = {
   dependencies: {},
 }
 
-export const load = async <T = any>(
-  url: string,
-  { fetcher, dependencies }: LoadOptions = defaultOptions
-) => {
+export const load = async <T = any>(url: string, options: Partial<LoadOptions>) => {
+  const { fetcher, dependencies } = { ...defaultOptions, ...options }
   const data = await fetcher(url)
 
   const resolver = createDependencyResolver(dependencies)
