@@ -15,7 +15,7 @@ describe('load', () => {
       const moduleFile = getModuleFile(moduleName)
       fetcher.mockReturnValue(Promise.resolve(moduleFile))
 
-      const dependencies = { 'dependency': 'success-dependency' }
+      const dependencies = { dependency: 'success-dependency' }
 
       const module = await load('http://test.url', { fetcher, dependencies })
 
@@ -25,5 +25,6 @@ describe('load', () => {
       expect(module.test).toEqual('success')
       expect(module.testDependency).toEqual(dependencies.dependency)
       expect(module.default).toEqual('success')
-    }))
-});
+    })
+  )
+})

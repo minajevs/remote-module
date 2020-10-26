@@ -8,11 +8,13 @@ export type LoadOptions = {
 
 const defaultOptions: LoadOptions = {
   fetcher: url => fetch(url).then(res => res.text()),
-  dependencies: {}
+  dependencies: {},
 }
 
-export const load = async <T = any>(url: string,
-  { fetcher, dependencies }: LoadOptions = defaultOptions) => {
+export const load = async <T = any>(
+  url: string,
+  { fetcher, dependencies }: LoadOptions = defaultOptions
+) => {
   const data = await fetcher(url)
 
   const resolver = createDependencyResolver(dependencies)
@@ -25,4 +27,4 @@ export const load = async <T = any>(url: string,
   func(resolver, module, exports, system)
 
   return module.exports
-}  
+}
