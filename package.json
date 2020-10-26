@@ -1,4 +1,6 @@
 {
+  "name": "@doubledashdev/remote-module",
+  "author": "Dmitrijs Minajevs",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -31,8 +33,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "remote-module",
-  "author": "Dmitrijs Minajevs",
   "module": "dist/remote-module.esm.js",
   "size-limit": [
     {
