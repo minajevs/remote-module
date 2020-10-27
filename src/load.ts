@@ -21,7 +21,7 @@ export const load = async <T = any>(url: string, options: Partial<LoadOptions> =
   const exports = {} as T
   const module = { exports }
   const system = createSystem(exports, resolver)
-  const amdDefine = createAmdDefine(require, exports, dependencies)
+  const amdDefine = createAmdDefine(resolver, exports, dependencies)
 
   const func = new Function('require', 'module', 'exports', 'System', 'define', data)
   func(resolver, module, exports, system, amdDefine)
